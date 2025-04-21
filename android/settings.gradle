@@ -1,6 +1,34 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+//pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
+//plugins { id("com.facebook.react.settings") }
+//extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+//rootProject.name = 'SampleWatermelonApp'
+//include ':app'
+//includeBuild('../node_modules/@react-native/gradle-plugin')
+
+pluginManagement {
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+
+    plugins {
+        id("com.android.application") version "8.4.0"
+        id("com.android.library") version "8.4.0"
+        id("org.jetbrains.kotlin.android") version "1.9.10" // optional
+    }
+}
+
+plugins {
+    id("com.facebook.react.settings")
+}
+
+extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
+    ex.autolinkLibrariesFromCommand()
+}
+
 rootProject.name = 'SampleWatermelonApp'
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
