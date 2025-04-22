@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, TextInput, Button, View, FlatList } from 'react-native'
+import { Text, TextInput, Button, View, FlatList, SafeAreaView } from 'react-native'
 import post from '../../models/post'
 import { addPost, fetchPosts, updatePost, deletePost} from '../../actions/index.ts'
 
@@ -17,7 +17,7 @@ const Posts = () => {
     }, [posts])
 
     return (
-        <View style={{ padding: 20 }}>
+        <SafeAreaView style={{ padding: 20, margin: 30 }}>
             <TextInput
                 placeholder="Enter Post title: "
                 value={title}
@@ -54,7 +54,7 @@ const Posts = () => {
                     </Text>
                 )}
             />
-        </View>
+        </SafeAreaView>
     )
 }  
 export default Posts
